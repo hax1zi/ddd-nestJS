@@ -1,20 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { faker } from '@faker-js/faker';
 import { UserEntity, UserProps } from '../../user.entity';
+import { UserDataBuilder } from '../../../../domain/testing/helpers/user-data-builder';
 
 describe('UserEntity unit tests', () => {
   let props: UserProps;
   let sut: UserEntity;
 
   beforeEach(() => {
-    props = {
-      name: faker.name.fullName(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-    };
-
+    props = UserDataBuilder({});
     sut = new UserEntity(props);
   });
 
